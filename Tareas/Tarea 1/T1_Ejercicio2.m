@@ -1,4 +1,5 @@
 muestras_n = 0:1:74;%Indica que son las primeras 75 muestras. De 0 a 74 con incrementos de 1
+muestras_n = linspace(0,74,75)';
 
 f01 = 0.01 ;%Valor definido por el ejercicio;
 f02 = 0.02;%Valor definido por el ejercicio;
@@ -23,7 +24,7 @@ plot(muestras_n,y05);
 subplot(4,1,4)
 plot(muestras_n,y1);
 
-f1 = figure('Name','Graficos por separado utilizando funcion stem','NumberTitle','on');
+f2 = figure('Name','Graficos por separado utilizando funcion stem','NumberTitle','on');
 subplot(4,1,1)
 stem(muestras_n,y01);
 
@@ -35,6 +36,15 @@ stem(muestras_n,y05);
 
 subplot(4,1,4)
 stem(muestras_n,y1);
+
+f3 = figure('Name','Graficos en mismo cuadro utilizando plot','NumberTitle','on');
+plot(muestras_n,y01,'-o',muestras_n,y02,'-*',muestras_n,y05,'-^',muestras_n,y1,'-x');
+
+f4 = figure('Name','Graficos en mismo cuadro utilizando stem','NumberTitle','on');
+X = muestras_n;
+Y = [y01,y02,y05,y1];
+stem(X,Y);
+
 
 
 
