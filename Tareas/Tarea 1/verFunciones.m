@@ -1,7 +1,7 @@
 %muestras_n = 0:1:74;%Indica que son las primeras 75 muestras. De 0 a 74 con incrementos de 1
 %muestras_n = linspace(0,74,75)';%Generar vector espaciado linealmente
 
-function [muestras_n] = verFunciones(N)
+function verFunciones(N)
 muestras_n = linspace(0,N-1,N)';
 
 f01 = 0.01 ;%Valor definido por el ejercicio;
