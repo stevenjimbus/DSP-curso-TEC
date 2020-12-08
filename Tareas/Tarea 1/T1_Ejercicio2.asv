@@ -51,7 +51,7 @@ legend('frequency = 0.01','frequency = 0.02','frequency = 0.05','frequency = 0.1
 
 f4 = figure('Name','Graficos en mismo cuadro utilizando stem','NumberTitle','on');%definir una figura de representacion
 X = muestras_n;%reasignacion de variable - datos
-Y = [y01,y02,y05,y1];%creación de matriz 75x4, donde el 4 se refiere a las cuatro funciones a graficar
+Y = [y01,y02,y05,y1];%creación de matriz 
 stem(X,Y);%funcion para graficar valores discretos de una funcion
 legend('frequency = 0.01','frequency = 0.02','frequency = 0.05','frequency = 0.1');%etiqueta para cada linea del grafico
 
