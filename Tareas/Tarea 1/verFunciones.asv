@@ -1,11 +1,10 @@
 % verFunciones(N) grafica las siguientes funciones:
 % y(N) = sin(3*pi*f*N) para f = [0.01,0.02,0.05,0.1]  y N >= 0  (N = numero Entero)
 % verFunciones(N) grafica utilizando las funciones plot y stem (ver titulo
-% de las figuras generadas para mas detalles
+% de la figura
 %
-% Como utilizar la funcion?
-% Decida la cantidad de muestras que desea graficar. Ejemplo N=75
-%En el command window escriba ->  verFunciones(75)
+%Como utilizar la funcion?
+%
 
 function verFunciones(N)
 muestras_n = linspace(0,N-1,N)';
