@@ -8,7 +8,7 @@
 %En el command window escriba ->  verFunciones(75)
 
 function verFunciones(N)
-muestras_n = linspace(0,N-1,N)';
+muestras_n = linspace(0,N-1,N)';%Generar vector espaciado linealmente
 
 f01 = 0.01 ;%Valor definido por el ejercicio;
 f02 = 0.02;%Valor definido por el ejercicio;
@@ -53,21 +53,6 @@ title("frequency = 0.05");%titulo del subplot
 subplot(4,1,4);%crear dentro de la figura creada anteriormente, una malla de 4x1 para graficar las funciones
 stem(muestras_n,y1,'-x');%funcion para graficar valores discretos de una funcion
 title("frequency = 0.1");%titulo del subplot
-
-
-%{
-f3 = figure('Name','Graficos en mismo cuadro utilizando plot','NumberTitle','on');%definir una figura de representacion
-plot(muestras_n,y01,'-o',muestras_n,y02,'-*',muestras_n,y05,'-^',muestras_n,y1,'-x');%funcion para graficar linea 2D plot(X,Y) donde X es la variable independiente y Y es la variable dependiente de X. 
-legend('frequency = 0.01','frequency = 0.02','frequency = 0.05','frequency = 0.1');%etiqueta para cada linea del grafico
-
-f4 = figure('Name','Graficos en mismo cuadro utilizando stem','NumberTitle','on');%definir una figura de representacion
-X = muestras_n;%reasignacion de variable - datos
-Y = [y01,y02,y05,y1];%creación de matriz 75x4, donde el 4 se refiere a las cuatro funciones a graficar
-stem(X,Y);%funcion para graficar valores discretos de una funcion
-legend('frequency = 0.01','frequency = 0.02','frequency = 0.05','frequency = 0.1');%etiqueta para cada linea del grafico
-%}
-
-
 end 
 
 
