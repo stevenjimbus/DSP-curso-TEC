@@ -1,5 +1,4 @@
 %Tarea 1 ejercicio 4
-
 n = 16;% para completar ciclo de x1_n [n=4],  x2_n [n=6],  x3_n [n=8]. Pongo un valor más grande para ver un la continuidad de la onda
 separacion = 10;
 muestras_n = linspace(0,n-1,n*separacion)';
