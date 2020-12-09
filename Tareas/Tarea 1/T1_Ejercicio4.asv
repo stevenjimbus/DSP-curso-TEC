@@ -1,0 +1,14 @@
+%Tarea 1 ejercicio 4
+
+n = 10;% para completar ciclo de x1_n [n=4],  x2_n [n=6],  x3_n [n=8]. PUse un 
+separacion = 10;
+muestras_n = linspace(0,n-1,n*separacion)';
+
+x1_n = cos((2*pi*muestras_n)/(4));
+x2_n = cos((2*pi*muestras_n)/(6));
+x3_n = cos((2*pi*muestras_n)/(8));
+
+f1 = figure('Name','Graficos por separado utilizando funcion plot','NumberTitle','on');
+subplot(4,1,1);
+plot(muestras_n,y01,'-o');
+title("frequency = 0.01");
