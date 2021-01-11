@@ -5,7 +5,7 @@
 
 
 n = 0:1:20;
-f_fundamental = 1/5; % f = 0.2, f = 1/5   es la frecuencia fundamental definica por el problema
+f_fundamental = 1/12; % f = 0.2, f = 1/5   es la frecuencia fundamental definica por el problema
 f_alias_positivo = f_fundamental + 1; % se calcula la frecuencia Alias al sumarle 1 a la frecuencia fundamental f_fundamental
 
 x1 = cos(2*pi*(f_fundamental)*n); %calculo de funcion coseno definido por f_fundamental

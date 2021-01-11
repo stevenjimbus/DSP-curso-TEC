@@ -8,7 +8,7 @@ tmin = 0;
 tmax = 40;
 t = linspace(tmin, tmax, 400);
 x_c = cos(2*pi*F * t);
-plot(t,x_c,'k')
+plot(t,x_c,':k')
 xlabel('t (seconds)')
 
 
@@ -21,7 +21,7 @@ n = nmin:nmax;
 x_fundamental = cos(2*pi*(F) * n*Ts);
 
 hold on
-plot(n*Ts,x_fundamental,'r o')
+plot(n*Ts,x_fundamental,'g *')
 
 
 %****Calculo de k-esimo alias
@@ -33,5 +33,7 @@ nmax = floor(tmax / Tk);
 n = nmin:nmax;
 x_alias = cos(2*pi*(F) * n*Tk);
 hold on
-plot(n*Tk,x_alias,'b *')
+plot(n*Tk,x_alias,'r o')
+
+legend({'señal analogica','frecuencia muestreo fundamental','Frecuencia del k-esimo alias'},'Location','southwest')
 hold off
