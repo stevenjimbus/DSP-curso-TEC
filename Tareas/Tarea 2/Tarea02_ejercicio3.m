@@ -20,7 +20,7 @@ while F_armonico < BW
     armonico = armonico + 1 ;%Variable util para aumentar los armonicos de F, entiendas F1, F2, F3...
     F_armonico = F*armonico;%Calculo de la frencuencia del armonico 
 end
-str = sprintf( '%s %.5g %s %.1g ', 'Cantidad de armonicos generado para F = ',F,':',cantidad_de_armonicos);
+str = sprintf( '%s %.5g %s %.1g ', 'Cantidad de armonicos generado para F =',F,'Hz :     ',cantidad_de_armonicos);
 display(str)%Mensaje resumen de la funcion
 
 sound(unicoVector,Fs); %Funcion utilizada para reproducir los las frecuencias y armonicos muestreados 
