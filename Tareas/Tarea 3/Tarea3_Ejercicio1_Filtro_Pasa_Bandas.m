@@ -5,7 +5,7 @@ f2 = 6000 ;
 f3 = 9000 ;
 
 Ntotal=22050;
-n=(1:1:500)';
+n=(1:1:20000)';
 x1=sin(2*pi*(f2/Fs)*n);
 noise = x1 + sin(2*pi*(f1/Fs)*n) + sin(2*pi*(f3/Fs)*n);
 
@@ -55,7 +55,7 @@ ymenos1=0; %y(n-1)
 ymenos2=0; %y(n-2)
 
 for i=1:L
-    yn(i,1)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+    yn(i,1)=g*(b(1)*xn(i,1)+b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
     ymenos2=ymenos1;
     ymenos1=yn(i,1);
     xmenos2=xmenos1;
@@ -82,7 +82,7 @@ ymenos1=0; %y(n-1)
 ymenos2=0; %y(n-2)
 
 for i=1:L
-    yn(i,1)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+    yn(i,1)=g*(b(1)*xn(i,1)+b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
     ymenos2=ymenos1;
     ymenos1=yn(i,1);
     xmenos2=xmenos1;
@@ -110,7 +110,7 @@ ymenos1=0; %y(n-1)
 ymenos2=0; %y(n-2)
 
 for i=1:L
-    yn(i,1)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+    yn(i,1)=g*(b(1)*xn(i,1)+b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
     ymenos2=ymenos1;
     ymenos1=yn(i,1);
     xmenos2=xmenos1;
@@ -118,22 +118,29 @@ for i=1:L
 end
 
 
-figure(3);
-stem(n,yn);
+% figure(3);
+% stem(n,yn);
 
 diferencia_contra_yn = x1 - yn;
 
-figure(4);
-plot(n,diferencia_contra_noise)
+% figure(4);
+% plot(n,diferencia_contra_noise)
+% 
+% figure(5);
+% plot(n,diferencia_contra_yn)
 
-figure(5);
-plot(n,diferencia_contra_yn)
+sound(x1,Fs)
+pause(1)
+sound(noise,Fs)
+pause(1)
+sound(yn,Fs)
 
-% sound(xn,Fs)
-% pause(1)
-% sound(noise,Fs)
-% pause(1)
-% sound(yn,Fs)
+figure(6)
+subplot(2,1,1);
+stem(n,yn)
+
+subplot(2,1,2); 
+stem(n,x1)
 
 
 
