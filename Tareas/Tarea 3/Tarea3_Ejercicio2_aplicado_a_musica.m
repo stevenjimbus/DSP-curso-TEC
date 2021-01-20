@@ -4,10 +4,10 @@
 %Dimensiones de la señal de entrada
 MN=size(data);
 L=MN(1);
-qty_of_channel = MN(2);
+qty_of_channel = MN(2);%calcular cantidad de canales que tiene el sonido L and R
 
 %Salida
-yn=(zeros(qty_of_channel,L))';
+yn=(zeros(qty_of_channel,L))';%Definir un vector para cada señal filtrada del sonido L and R
 
 
 %Coeficientes del filtro
@@ -16,7 +16,7 @@ yn=(zeros(qty_of_channel,L))';
 %g=1;%ganancia
 
 
-for k=1:qty_of_channel
+for k=1:qty_of_channel%Filtrar cada canal por separado
     xn = data(:,k);
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -28,7 +28,7 @@ for k=1:qty_of_channel
 
 
     %Ecuación de diferencias del filtro de orden 2
-    %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+    %a0y(n)+a1y(n-1)+a2y(n-2)=s1(x(n) - x(n-2))
 
     %condiciones inciales
     xmenos1=0; %x(n-1)
@@ -37,7 +37,7 @@ for k=1:qty_of_channel
     ymenos2=0; %y(n-2)
 
     for i=1:L
-        yn(i,k)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+        yn(i,k)=g*(xn(i,1) - xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
         ymenos2=ymenos1;
         ymenos1=yn(i,k);
         xmenos2=xmenos1;
@@ -64,7 +64,7 @@ for k=1:qty_of_channel
     ymenos2=0; %y(n-2)
 
     for i=1:L
-        yn(i,k)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+        yn(i,k)=g*(xn(i,1) - xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
         ymenos2=ymenos1;
         ymenos1=yn(i,k);
         xmenos2=xmenos1;
@@ -92,7 +92,7 @@ for k=1:qty_of_channel
     ymenos2=0; %y(n-2)
 
     for i=1:L
-        yn(i,k)=g*(b(1)*xn(i,1)-b(3)*xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
+        yn(i,k)=g*(xn(i,1) - xmenos2)-a(2)*ymenos1-a(3)*ymenos2; %a0y(n)+a1y(n-1)+a2y(n-2)=b0x(n) - b2x(n-2)
         ymenos2=ymenos1;
         ymenos1=yn(i,k);
         xmenos2=xmenos1;
@@ -102,11 +102,10 @@ for k=1:qty_of_channel
 end
 
 
-sound(data,fs)
+sound(data,fs)%reproducir musica sin filtrar
 pause(1+L*(1/fs))
-sound(yn,fs)
+sound(yn,fs)%reproducir musica filtrada
 pause(1+L*(1/fs))
-sound(data,fs)
 disp('codigo ha terminado')
 
 
